@@ -1,0 +1,23 @@
+{
+    "request_type": "application_permission_check",
+    "tag": "application_permission_check",
+    
+    "params": "user_id,permission",
+    "check_type": "any_can_pass",
+    "rule": [
+      {
+        "order": 1,
+        "rule_type": "service_check",
+        "service": "rbac_app_level",     
+        "must_pass": "false"
+      }
+    ]
+}
+
+
+
+// {
+//   "id": "2",
+//   "key": "services"
+//   "value": "tag json array all services -> service type , parameter ,tag, endpoint , invoke"
+// }

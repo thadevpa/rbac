@@ -1,0 +1,10 @@
+
+{
+  "user_id" : "2"   ,
+  "resource": "test",
+  "action": "test",
+  "catalog": "test",
+  "role": "test",
+  "attribute": "test"
+}
+  

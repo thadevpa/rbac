@@ -1,0 +1,13 @@
+
+{
+  "level": "cataloglevel",
+  "user_id" : "1",
+  "resource": "product",
+  "permission": "build_a_house",
+
+  "action": "read",
+  "catalog": "",
+  "role": "",
+  "attribute": ""
+}
+  

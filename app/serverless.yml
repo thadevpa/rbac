@@ -1,0 +1,26 @@
+service:  ${file(../config/serverless.config.yml):main_config.service_name_app}
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider: 
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: ap-southeast-1
+  environment:
+    dynamo_db_table: ${self:provider.stage}-app-level
+    mysql_host: xxx
+    mysql_database: xxx
+    mysql_user: xxx
+    mysql_password: xxx
+    
+
+functions:
+  check:   
+    handler: function/main.handler
+    events:
+      - http:
+          path: role-check
+          method: post
+          cors: true
+          

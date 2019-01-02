@@ -1,0 +1,3 @@
+# gitignore file
+*serverless/*
+*node_modules/*
