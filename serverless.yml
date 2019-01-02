@@ -1,26 +1,43 @@
-service:  ${file(../config/serverless.config.yml):main_config.service_name_app}
+service: app-log
 
 frameworkVersion: ">=1.1.0 <2.0.0"
 
-provider: 
+custom:  
+  stage: ${opt:stage, self:provider.stage} 
+  tableName: ${self:custom.stage}-log  
+
+provider:  
   name: aws
   runtime: nodejs8.10
   stage: dev
   region: ap-southeast-1
   environment:
-    dynamo_db_table: ${self:provider.stage}-app-level
-    mysql_host: xxx
-    mysql_database: xxx
-    mysql_user: xxx
-    mysql_password: xxx
-    
+    dynamo_db_table: ${self:custom.tableName} 
+  
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.dynamo_db_table}"
+
 
 functions:
-  check:   
-    handler: function/main.handler
+  create:
+    handler: function/create.create
     events:
       - http:
-          path: role-check
+          path: log/create
           method: post
           cors: true
-          
+    iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+      Resource: "*"
+
+
