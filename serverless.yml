@@ -9,7 +9,8 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: ap-southeast-1
-  environment: ${file(../config/serverless.config.yml):env_config}    
+  # environment: ${file(../config/serverless.config.yml):env_config}    
+  environment: ${env:prefix}
   
   iamRoleStatements:
     - Effect: Allow
