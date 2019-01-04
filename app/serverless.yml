@@ -1,4 +1,4 @@
-service: rbac
+service: ${file(../config/serverless.config.yml):main_config.service_name_app}
 
 frameworkVersion: ">=1.1.0 <2.0.0"
 
