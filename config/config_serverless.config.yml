@@ -1,4 +1,6 @@
+#Per implementation, only adjust values in main_config
 main_config: 
+  master_prefix: ""
   resource_prefix: ${self:provider.stage}-rbac   
   service_name_app: rbac-app
   service_name_resources: rbac-resources
