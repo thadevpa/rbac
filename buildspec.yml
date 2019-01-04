@@ -11,6 +11,7 @@ phases:
       # - echo "$prefix"
       # - printenv prefix
       # - serverless deploy 
+      - cd app
       - serverless deploy --stage cicd | tee deploy.out
   post_build:
     commands:
