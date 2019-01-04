@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "aws-lambda-invoke": "^3.0.0",
+    "aws-sdk": "^2.342.0",
+    "izara": "git+https://thadevpa@bitbucket.org/stb_working/izara-package.git",
+    "serverless": "^1.33.1",
+    "serverless-mysql": "^1.1.0",
+    "uuid": "^3.3.2"
+  }
+}
