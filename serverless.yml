@@ -10,8 +10,9 @@ provider:
   stage: dev
   region: ap-southeast-1
   # environment: ${file(../config/serverless.config.yml):env_config}    
-  environment: ${env:PREFIX}
-  
+  environment: 
+    PREFIX: ${env:PREFIX}
+    
   iamRoleStatements:
     - Effect: Allow
       Action:
