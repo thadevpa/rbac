@@ -1,6 +1,6 @@
 main_config: 
-  resource_prefix: ${self:provider.stage}-app-level   
-  service_name_app: rbac-app-level
+  resource_prefix: ${self:provider.stage}-rbac   
+  service_name_app: rbac-app
   service_name_resources: rbac-resources
 
 resources_config:
