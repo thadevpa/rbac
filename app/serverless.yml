@@ -11,8 +11,7 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: ap-southeast-1
-  environment:
-    dynamo_db_table: ${self:custom.tableName} 
+  environment: ${file(../config/serverless.config.yml):env_config}    
   
   iamRoleStatements:
     - Effect: Allow
@@ -28,16 +27,12 @@ provider:
 
 functions:
   create:
-    handler: function/create.create
+    handler: function/main.handler
     events:
       - http:
-          path: log/create
+          path: rbac/app/
           method: post
           cors: true
-    iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:PutItem
-      Resource: "*"
+   
 
 

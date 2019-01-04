@@ -3,6 +3,13 @@ main_config:
   service_name_app: rbac-app
   service_name_resources: rbac-resources
 
+env_config:
+  dynamo_db_table: ${self:custom.tableName} 
+  mysql_host: mysql-sg.cubsy5aifria.ap-southeast-1.rds.amazonaws.com  
+  mysql_database: applevel
+  mysql_user: rpm
+  mysql_password: rpm2018!
+
 resources_config:
   dynamo_db_config_table:
     tablename: ${self:main_config:resource_prefix}-config
