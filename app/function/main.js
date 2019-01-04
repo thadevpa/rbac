@@ -12,6 +12,7 @@ const lambda = new AWS.Lambda({
 module.exports.handler = async  (event, ct, cb) => {
    
     console.log(process.env.dynamo_db_table);
+    console.log(process.custom.master_prefix);
     if(!event.level){
         cb("not found level");
     }
